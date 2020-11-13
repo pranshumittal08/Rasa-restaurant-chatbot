@@ -1,0 +1,113 @@
+intents:
+  - affirm
+  - restaurant_search
+  - inform_email
+  - greet
+  - goodbye
+  - no_email
+  - price_range
+
+entities:
+  - cuisine
+  - location
+  - budget_min
+  - budget_max
+  - email
+
+actions:
+  - utter_want_email
+  - utter_ask_email
+  - utter_ask_budget
+  - utter_ask_cuisine
+  - utter_ask_howcanhelp
+  - utter_ask_location
+  - utter_default
+  - utter_goodbye
+  - utter_greet
+  - action_search_restaurants
+  - action_verify_location
+  - action_verify_cuisine
+  - action_verify_budget
+  - action_send_email
+
+slots:
+  cuisine:
+    type: text
+  location:
+    type: text
+  email:
+    type: text
+  budget_min:
+    initial_value: 0.0
+    type: float
+  budget_max:
+    initial_value: 1.0
+    type: float
+  location_ok:
+    type: bool
+    initial_value: False
+  cuisine_ok:
+    type: bool
+    initial_value: False
+  budget_ok:
+    type: bool
+    initial_value: False
+
+responses:
+  utter_ask_cuisine:
+    - text: "what kind of cuisine would you like?"
+    - text: "Tell me your cuisine preference, please!"
+      buttons:
+      - title: Chinese
+        payload: Chinese
+      - title: Italian
+        payload: Italian
+      - title: South Indian
+        payload: South Indian
+      - title: North Indian
+        payload: North Indian
+      - title: Mexican
+        payload: Mexican
+      - title: American
+        payload: American
+
+  utter_ask_budget:
+    - text: "What price range are you looking for? \nLess than Rs.300\nRs. 300 to 700\nMore than Rs.700\n"
+    
+
+  utter_ask_howcanhelp:
+    - text: "How can I help you?"
+    - text: "How may I assist you today?"
+    - text: "What can I do for you today?"
+  
+  utter_ask_location:
+    - text: "In what location?"
+    - text: "Please provide your location"
+
+  utter_want_email:
+    - text: "Do you want the recommened restaurants sent to you on your email?"
+    - text: "Would you like us to share the recommendations on your preferred email?"
+     
+  utter_ask_email:
+    - text: "Please provide your email id"
+    - text: "Please help me with your email address"
+  
+  utter_default:
+    - text: "Sorry, I did not understand, could you please rephrase?"
+    - text: "Sorry, I didn't get you, could you please rephrase?"
+
+  utter_goodbye:
+    - text: "Goodbye!" 
+    - text: "Bye-bye!"
+    - text: "Ciao"
+
+  utter_greet:
+    - text: "Hey there! My name is Rasa!"
+    - text: "Hi, I am Rasa!"
+    - text: "Hey, I am Rasa!"
+    - text: "Hola, I am Rasa!"
+
+
+session_config:
+  session_expiration_time: 60  # value in minutes
+  carry_over_slots_to_new_session: true
