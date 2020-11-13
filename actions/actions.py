@@ -185,14 +185,14 @@ class ActionSendEmail(Action):
         # Open SMTP connection to our email id.
 		s = smtplib.SMTP("smtp.gmail.com", 587)
 		s.starttls()
-		s.login("rasa.bot.upgrad@gmail.com", "learnrasa")
+		s.login("*********@gmail.com", "*******")
 
         # Create the msg object
 		msg = EmailMessage()
 
         # Fill in the message properties
 		msg['Subject'] = email_subj
-		msg['From'] = "rasa.not.upgrad@gmail.com"
+		msg['From'] = "********@gmail.com"
 
         # Fill in the message content
 		msg.set_content(email_msg)
